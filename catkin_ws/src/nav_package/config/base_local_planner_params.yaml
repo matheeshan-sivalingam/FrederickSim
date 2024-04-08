@@ -1,0 +1,23 @@
+base_local_planner: "dwa_local_planner/DWAPlannerROS"
+
+DWAPlannerROS:
+  holonomic_robot: false
+  # Goal Tolerance
+  yaw_goal_tolerance: 0.10
+  xy_goal_tolerance: 0.05
+  
+  # Robot config parameters
+
+  #X acceleration limit
+  acc_lim_x: 0.10 
+  #Z acceleration limit
+  acc_lim_th: 0.05
+  #Maximum x velocity
+  max_vel_x: 0.18
+  #Minimum x velocity
+  min_vel_x: -0.18
+  #Maximum vel_theta
+  max_vel_theta: 0.1
+  #Minimum vel_theta
+  min_vel_theta: 0.01
+  

@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<robot name="frederick">
+
+    <!-- Body Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.28 0.10 0.09"/>
+      </geometry>
+    </visual>
+  </link>
+
+<!-- Lidar -->
+<joint name="lidar_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="lidar_link"/>
+  <origin xyz="-0.11 0 0.08" rpy="0 0 0"/> 
+</joint>
+<link name="lidar_link">
+  <visual>
+    <geometry>
+      <cylinder length="0.07" radius="0.0325"/>
+    </geometry>
+  </visual>
+</link>
+
+<!-- Define the link for the MPU6050 sensor -->
+<link name="imu_link">
+  <visual>
+    <geometry>
+      <!-- Even though it has no physical dimension, you might still define a small visual marker for visualization -->
+      <box size="0.02 0.02 0.01"/>
+    </geometry>
+    <material name="black">
+      <color rgba="0 0 0 1"/>
+    </material>
+  </visual>
+</link>
+
+<!-- Define the joint connecting the MPU6050 to the robot, for example, to the base_link -->
+<joint name="imu_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+  <origin xyz="0 0 0.05" rpy="0 0 0"/>
+</joint>
+
+    <!-- Rear right wheel-->
+    <joint name="wheel1_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="wheel1_link"/>
+        <origin xyz="-0.06 -0.065 -0.03" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="wheel1_link">
+        <visual>
+            <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.025" radius="0.03"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 1 0 1"/>
+            </material> 
+        </visual>
+    </link>
+
+<!-- Rear left wheel-->
+    <joint name="wheel2_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="wheel2_link"/>
+        <origin xyz="-0.06 0.065 -0.03" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="wheel2_link">
+        <visual>
+            <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.025" radius="0.03"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 1 0 1"/>
+            </material> 
+        </visual>
+    </link>
+
+ <!-- Front right wheel-->
+    <joint name="wheel3_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="wheel3_link"/>
+        <origin xyz="0.06 -0.065 -0.03" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="wheel3_link">
+        <visual>
+            <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.025" radius="0.03"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 1 0 1"/>
+            </material> 
+        </visual>
+    </link>
+
+<!-- Front left wheel-->
+    <joint name="wheel4_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="wheel4_link"/>
+        <origin xyz="0.06 0.065 -0.03" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="wheel4_link">
+        <visual>
+            <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.027" radius="0.03"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 1 0 1"/>
+            </material> 
+        </visual>
+    </link>
+
+	
+</robot>

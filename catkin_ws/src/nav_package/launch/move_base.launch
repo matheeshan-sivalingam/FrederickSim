@@ -1,0 +1,33 @@
+<!-- navigation.launch -->
+<launch>
+    <!-- Load global costmap parameters -->
+    <rosparam file="$(find nav_package)/config/global_costmap_params.yaml" command="load" ns="global_costmap" />
+
+    <!-- Load local costmap parameters -->
+    <rosparam file="$(find nav_package)/config/local_costmap_params.yaml" command="load" ns="local_costmap" />
+
+    <!-- Load common costmap parameters -->
+    <rosparam file="$(find nav_package)/config/costmap_common_params.yaml" command="load" />
+
+    <!-- Load the base local planner parameters -->
+    <rosparam file="$(find nav_package)/config/base_local_planner_params.yaml" command="load"/>
+
+    <!-- Initialize the move_base node -->
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <!-- Override default parameters if needed -->
+        <param name="controller_frequency" value="10.0"/>
+        
+        <!-- Set up frame names -->
+        <param name="global_frame_id" value="map"/>
+        <param name="robot_base_frame" value="base_link"/>
+        
+        <!-- Configure planner's frequency and patience -->
+        <param name="planner_patience" value="5.0"/>
+        <param name="controller_patience" value="3.0"/>
+        
+        <!-- Configure oscillation timeout and distance -->
+        <param name="oscillation_timeout" value="30.0"/>
+        <param name="oscillation_distance" value="0.5"/>
+    </node>
+</launch>
+

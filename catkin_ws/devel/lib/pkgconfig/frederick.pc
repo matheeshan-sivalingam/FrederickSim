@@ -1,0 +1,8 @@
+prefix=/home/matheeshan/frederick/catkin_ws/devel
+
+Name: frederick
+Description: Description of frederick
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
